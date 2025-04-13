@@ -1,0 +1,218 @@
+/* General styles and theming */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 10px;
+    background-color: #f0f2f5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    --mdc-theme-primary: #007f8b;
+    --mdc-theme-on-primary: #f1f3f4;
+}
+
+#demos {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+}
+
+h1 {
+    color: #1a73e8;
+    font-size: 2em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h2 {
+    color: #1a73e8;
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+/* Video container and canvas */
+#liveView {
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    background: white;
+    padding: 15px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16/9;
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+    margin: 10px 0;
+    background: #000;
+}
+
+#webcam {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    border-radius: 12px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.output_canvas {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+    border-radius: 12px;
+    z-index: 10;
+}
+
+/* Button container styling */
+#poseInstructions {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10px 0;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 12px;
+    width: 100%;
+}
+
+/* Button styling */
+.mdc-button {
+    background-color: #1a73e8 !important;
+    color: white !important;
+    border: none;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: none !important;
+    font-weight: 500 !important;
+    min-width: 120px;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.mdc-button:hover {
+    background-color: #1557b0 !important;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+/* Special buttons */
+#webcamButton {
+    background-color: #34a853 !important;
+    margin-bottom: 10px;
+}
+
+#webcamButton:hover {
+    background-color: #2d8a46 !important;
+}
+
+#deleteModelButton {
+    background-color: #ea4335 !important;
+}
+
+#deleteModelButton:hover {
+    background-color: #d33828 !important;
+}
+
+/* Emoji buttons */
+#capturePoseButton, #capturePoseButton1, #capturePoseButton2 {
+    font-size: 24px !important;
+    min-width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    padding: 0 !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background-color: #fbbc05 !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#capturePoseButton:hover, #capturePoseButton1:hover, #capturePoseButton2:hover {
+    background-color: #f9ab00 !important;
+    transform: translateY(-2px) scale(1.05);
+}
+
+/* Status display */
+#currentPoseDisplay {
+    font-size: 14px;
+    padding: 8px 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin: 0 0 10px 0;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    color: #5f6368;
+    font-weight: 500;
+    border: 1px solid #e8eaed;
+}
+
+/* Results container */
+.results-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.poseResult {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 5px 0;
+    width: 100%;
+    transition: all 0.3s ease;
+}
+
+.poseResult:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* Confusion matrix styling */
+#confusionMatrixCanvas {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    margin: 15px 0;
+    padding: 10px;
+    display: none; /* Hidden by default */
+}
+
+#confusionMatrixCanvas.visible {
+    display: block;
+}
+
+/* Hide file input */
+input[type="file"] {
+    display: none;
+}
